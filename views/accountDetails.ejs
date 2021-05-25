@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 d-flex flex-column">
+                <h1>
+                    UserName :
+                    <%=customer.username%>
+                </h1>
+                <h1>
+                    Mobile Number :
+                    <%=customer.phone_number%>
+                </h1>
+                <h1>
+                    City :
+                    <%=customer.address%>
+                </h1>
+                <h1>
+                    Account Type :
+                    <%=customer.accountType%>
+                </h1>
+                <h1>
+                    Available Balance: Rs.
+                    <%=customer.balance%>
+                </h1>
+                <form action='/accountBalance/<%=customer.username%>' method='POST'>
+                    <input class="mb-3" type='text' name='withdrawAmount' /><br/>
+                    <input type='submit' role="button" value='Withdraw' />
+                </form>
+                <form action='/accountAddBalance/<%=customer.username%>' method='POST'>
+                    <input class="mb-3" type='text' name='depositAmount' /><br/>
+                    <input type='submit' role="button" value='Deposit' />
+                </form><br/>
+                <form action='/sendMoney/<%=customer.phone_number%>' method='POST'>
+                    <label for="Amount">Amount to send</label>
+                    <input class="mb-3" type='text' name='Amount' /><br/>
+                    <label for="number">Receiver Number</label>
+                    <input class="mb-3" type='text' name='number' /><br/>
+                    <input type='submit' role="button" value='Send Money' />
+                </form><br/>
+                <a role="button" class="btn btn-secondary ml-auto mt-4" href="/logout">Logout</a>
+                <% if(roleType =='Admin') {%>
+                    <a role="button" class="btn btn-secondary ml-auto mt-4" href="/download">Download</a>
+                    <form action='/upload' method='POST' enctype='multipart/form-data'>
+                        <div class="form-group">
+                            <label class="control-label" for="uploadfile">Choose a File:</label>
+                            <input type="file" class="form-control" placeholder="Choose a upload file" name="file" required></input>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Upload</button>
+                    </form>
+                    <a role="button" class="btn btn-secondary ml-auto mt-4" href="/downloadPDF">Download PDF</a>
+                    <% } %>
+                        <a href="/deleteUser/<%=customer.id%>" class="btn btn-primary mr-auto mt-4">Delete User</a><br/>
+            </div>
+        </div>
+    </div>
+    <script src="../*.js"></script>
+</body>

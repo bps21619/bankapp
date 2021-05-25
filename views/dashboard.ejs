@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container ">
+        <div class="row">
+            <div class="col-12 d-flex flex-column">
+
+                <h1>My Bank</h1>
+                <div class="d-flex flex-column justify-content-center">
+                    <h3>
+                        <%=username %>'s Account
+                    </h3>
+                    <a href="/accountDetails" class="btn btn-secondary mr-auto mb-4">Account Details</a>
+                    <a href="/viewedituser/<%=username%>?edit=true" class="btn btn-primary mr-auto">Edit User</a>
+                    <a role="button" class="btn btn-secondary ml-auto" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../*.js"></script>
+</body>
